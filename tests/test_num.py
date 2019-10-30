@@ -18,7 +18,6 @@ class TestNumWords(unittest.TestCase):
         self.assertEqual(nw(8), 'oito')
         self.assertEqual(nw(9), 'nove')        
 
-
     def test_tens(self):
         self.assertEqual(nw(-10), 'menos dez')
         self.assertEqual(nw(10), 'dez')
@@ -32,13 +31,11 @@ class TestNumWords(unittest.TestCase):
         self.assertEqual(nw(18), 'dezoito')
         self.assertEqual(nw(19), 'dezenove')        
 
-    
     def test_decs(self):
         self.assertEqual(nw(-20), 'menos vinte')
         self.assertEqual(nw(20), 'vinte')
         self.assertEqual(nw(21), 'vinte e um')
         self.assertEqual(nw(99), 'noventa e nove')
-    
 
     def test_hunds(self):
         self.assertEqual(nw(-101), 'menos cento e um')
@@ -67,12 +64,14 @@ class TestNumWords(unittest.TestCase):
         self.assertEqual(nw(900), 'novecentos')
         self.assertEqual(nw(999), 'novecentos e noventa e nove')
 
-
     def test_thous(self):
+        self.assertEqual(nw(-999999), 'Numero fora do intervalo')
         self.assertEqual(nw(-99101), 'menos noventa e nove mil e cento e um')
         self.assertEqual(nw(-1000), 'menos mil')
         self.assertEqual(nw(1000), 'mil')
         self.assertEqual(nw(1001), 'mil e um')
+        self.assertEqual(nw(1010), 'mil e dez')
+        self.assertEqual(nw(1101), 'mil e cento e um')
         self.assertEqual(nw(2000), 'dois mil')
         self.assertEqual(nw(2001), 'dois mil e um')
         self.assertEqual(nw(2010), 'dois mil e dez')
@@ -93,6 +92,7 @@ class TestNumWords(unittest.TestCase):
         self.assertEqual(nw(90121), 'noventa mil e cento e vinte e um') 
         self.assertEqual(nw(91000), 'noventa e um mil')
         self.assertEqual(nw(99101), 'noventa e nove mil e cento e um')
+        self.assertEqual(nw(999999), 'Numero fora do intervalo')
 
 
 if __name__ == '__main__':

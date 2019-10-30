@@ -19,6 +19,12 @@ class Nums(Resource):
             return "Informe um numero valido", 400
 
 
+class Ini(Resource):
+    def get(self):
+        return "Informe uma chave inteira de -9999 a 9999", 200
+
+
+api.add_resource(Ini, "/")
 api.add_resource(Nums, "/<string:param>")
 
 app.run(debug=True)
