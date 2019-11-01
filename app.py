@@ -24,4 +24,4 @@ class Ini(Resource):
 api.add_resource(Ini, "/")
 api.add_resource(Nums, "/<string:param>")
 
-app.run(debug=True)
+app.run(host='0.0.0.0', debug=True)
