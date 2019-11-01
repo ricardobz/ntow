@@ -13,7 +13,7 @@ class Nums(Resource):
             return {"extenso" : nw(int(param))}, 200
 
         else:
-            return "Informe um numero valido", 400
+            return "Informe um número válido", 400
 
 
 class Ini(Resource):
