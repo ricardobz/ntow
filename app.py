@@ -9,12 +9,9 @@ api = Api(app)
 class Nums(Resource):
     def get(self, param):
         
-        if param.isdigit():
+        if param.isdigit() or (param[0] == "-" and param[1:].isdigit()):
             return {"extenso" : nw(int(param))}, 200
 
-        elif param[0] == "-" and param[1:].isdigit():            
-            return {"extenso" : nw(int(param))}, 200
-            
         else:
             return "Informe um numero valido", 400
 
