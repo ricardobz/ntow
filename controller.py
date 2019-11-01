@@ -31,7 +31,7 @@ def num_words(param, child=False):
 
     # decimais
     elif 19 < param <= 99:
-        ret += decs.get(str(int(param / 10)))        
+        ret += decs.get(str(param // 10))
         if (param % 10) > 0:
             ret += ' e ' + num_words((param % 10))
 
@@ -40,26 +40,26 @@ def num_words(param, child=False):
         if param == 100:
             ret += hunds.get(str(param))
         else:
-            ret += hunds.get(str(int(param / 100)))
+            ret += hunds.get(str(param // 100))
             if (param % 100) > 0:
-                ret += ' e ' + num_words(int(param % 100))
+                ret += ' e ' + num_words(param % 100)
     
     # milhares
     elif 999 < param <= 9999:
         if str(param)[0] == '1' and not child:
             ret += 'mil'
         else:
-            ret += ones.get(str(int(param / 1000)))
+            ret += ones.get(str(param // 1000))
             ret += ' mil'
 
         if (param % 1000) > 0:
-            ret += ' e ' + num_words(int(param % 1000))            
+            ret += ' e ' + num_words(param % 1000)
 
     # dezenas de milhares
     elif 9999 < param <= 19999:
-        ret += tens.get(str(int(param / 1000)))        
+        ret += tens.get(str(param // 1000))        
         if (param % 1000) > 0:
-            ret_aux = num_words(int(param % 1000), True)
+            ret_aux = num_words(param % 1000, True)
             if 'mil' in ret_aux:
                 ret += ' e ' + ret_aux
             else:
@@ -69,9 +69,9 @@ def num_words(param, child=False):
 
     # decimais dos milhares
     elif 19999 < param <= 99999:
-        ret += decs.get(str(int(param / 10000)))        
+        ret += decs.get(str(param // 10000))
         if (param % 10000) > 0:
-            ret_aux = num_words(int(param % 10000), True)
+            ret_aux = num_words(param % 10000, True)
             if 'mil' in ret_aux:
                 ret += ' e ' + ret_aux
             else:
